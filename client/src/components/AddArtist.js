@@ -1,12 +1,10 @@
 import React from 'react';
-import { addSong } from './networkRequests';
+import { addArtist } from './networkRequests';
 
-class AddSong extends React.Component {
+class AddArtist extends React.Component {
     state = {
-        artistId: "",
         name: "",
-        duration: "", 
-        play_count: "", 
+        age: "", 
         img: ""
     }
 
@@ -16,21 +14,17 @@ class AddSong extends React.Component {
     //run
     onClick = () => {
         console.log(this.state)
-        addSong(this.state);
+        addArtist(this.state);
     }
 
     render(){
         return(
             <form className="add-song-wrap"> 
-                <h1>Add Song!</h1>
+                <h1>Add Artist!</h1>
                 <label>Artist: </label>
-                <input onChange={this.handleChange} value={this.state.artistId} name="artistId"></input>
-                <label>Song name: </label>
                 <input onChange={this.handleChange} value={this.state.name} name="name"></input>
-                <label>Duration: </label>
-                <input onChange={this.handleChange} value={this.state.duration} name="duration"></input>
-                <label>Play count: </label>
-                <input onChange={this.handleChange} value={this.state.play_count} name="play_count"></input>
+                <label>Age: </label>
+                <input onChange={this.handleChange} value={this.state.age} name="age"></input>
                 <label>Image: </label>
                 <input onChange={this.handleChange} value={this.state.img} name="img"></input>
                 <button onClick={this.onClick}>Submit</button>
@@ -39,4 +33,4 @@ class AddSong extends React.Component {
     }
 }
 
-export default AddSong;
+export default AddArtist;

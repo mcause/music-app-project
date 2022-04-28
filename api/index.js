@@ -1,3 +1,4 @@
+require('dotenv').config();
 const express = require('express');
 const app = express();
 const db = require('./queries.js');
@@ -12,12 +13,17 @@ app.get('/', (req, res) => {
 })
 
 app.get('/songs', db.getAllSongs);
-
+//Send a post request to the /songs using the quierries file containing the add song function 
 app.post('/songs', db.addSong);
 
-app.delete('/songs/:song_id', db.deleteSongById);
+app.get('/artists', db.getAllArtists);
 
-app.put('/songs/:song_id', db.updateSongNameById);
+app.post('/artists', db.addArtist);
+
+
+app.delete('/songs/:name', db.deleteSongById);
+
+app.put('/songs/:name', db.updateSongNameById);
 
 app.listen(port, () => {
     console.log(`App running on ${port}...`)
