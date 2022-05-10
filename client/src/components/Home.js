@@ -1,32 +1,27 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import AddSongs from './AddSong';
-import AddArtist from './AddArtist'
+import AddArtist from './AddArtist';
 import { getAllSongs } from './networkRequests';
-import { getAllArtists } from './networkRequests';
-import Song from './Song'
+import SongCard from './SongCard';
 
-class Home extends React.Component {
-    state = {
-        songs: []
-    }
+export default function Home(){
+    const [songs, setSongs] = useState([]);
     
-    componentDidMount(){
+    const refresh = () => {
         getAllSongs().then(res => {
-            this.setState({ songs: res });
+            setSongs(res);
         });
     }
- 
-    render(){
-        return (
-            <div>
-                <AddSongs />
-                <AddArtist />
-                <ul>
-                    {this.state.songs.map(song => <li><Song key={song.id}/>{song.name}</li>)}
-                </ul>
-            </div>
-        )
-    }
-}
+    
+    useEffect(refresh, []);
 
-export default Home;
+    return (
+        <div>
+            <AddSongs refresh={refresh}/>
+            <AddArtist refresh={refresh}/>
+            <ul className='song-card-container'>
+                {songs.map(song => <SongCard song={song} key={song.id} refresh={refresh}/>)}
+            </ul>
+        </div>
+    )
+}

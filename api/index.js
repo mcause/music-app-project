@@ -12,18 +12,25 @@ app.get('/', (req, res) => {
     res.json({ info: "Hello there"});
 })
 
-app.get('/songs', db.getAllSongs);
-//Send a post request to the /songs using the quierries file containing the add song function 
-app.post('/songs', db.addSong);
+// app.get('/songs', db.getAllSongs);
 
-app.get('/artists', db.getAllArtists);
+// app.post('/songs', db.addSong);
 
-app.post('/artists', db.addArtist);
+// app.delete('/songs/:song_id', db.deleteSongById);
 
+// app.put('/songs/:song_id', db.updateSongNameById);
 
-app.delete('/songs/:name', db.deleteSongById);
+// read / get
+app.get('/:tableName', db.getAllRows); 
 
-app.put('/songs/:name', db.updateSongNameById);
+// create / post
+app.post('/:tableName', db.createRow);
+
+// update / put
+app.put('/:tableName', db.updateRow);
+
+// delete / delete
+app.delete('/:tableName/:id', db.deleteRowById);
 
 app.listen(port, () => {
     console.log(`App running on ${port}...`)
