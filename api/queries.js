@@ -1,13 +1,13 @@
 const Pool = require('pg').Pool;
 
 const pool = new Pool({
-    user: 'postgres',
-    host: 'localhost',
-    host: 'music.c7xclwu5il92.us-east-1.rds.amazonaws.com',
+    user: 'mikemike',
+    //host: 'localhost',
+    host: 'music-playlist-db.cvozldemzsms.us-east-1.rds.amazonaws.com',
     database: 'music',
-    password: 'postgres',
+    password: 'Tcacmckc1988',
     port: 5432,
-    connectionString: 'postgres://mikemike:Tcacmckc1988@music-playlist-db.cvozldemzsms.us-east-1.rds.amazonaws.com:5432/music'
+    //connectionString: process.env.
 });
 
 const allowedTables = ['songs', 'artists']
