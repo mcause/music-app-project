@@ -6,7 +6,7 @@ const pool = new Pool({
     host: 'music-playlist-db.cvozldemzsms.us-east-1.rds.amazonaws.com',
     database: 'music',
     password: 'Tcacmckc1988',
-    port: 5432,
+    port: 5432
     //connectionString: process.env.
 });
 
