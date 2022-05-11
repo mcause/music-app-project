@@ -7,7 +7,7 @@ const pool = new Pool({
     database: 'music',
     password: 'postgres',
     port: 5432,
-    connectionString: process.env.PSQL_CONNECTION
+    connectionString: 'postgres://mikemike:Tcacmckc1988@music-playlist-db.cvozldemzsms.us-east-1.rds.amazonaws.com:5432/music'
 });
 
 const allowedTables = ['songs', 'artists']
