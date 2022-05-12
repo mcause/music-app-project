@@ -1,4 +1,5 @@
-const apiEndpoint = 'http://localhost:3030'
+//const apiEndpoint = 'http://localhost:3030'
+const apiEndpoint = 'https://dx0n1uhyofkh1.cloudfront.net/'
 
 export const getAllSongs = async () => {
     // const songs = await fetch("http://ec2-3-95-222-148.compute-1.amazonaws.com:3030/songs");
